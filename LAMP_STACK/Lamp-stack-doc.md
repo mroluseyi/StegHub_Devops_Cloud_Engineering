@@ -233,6 +233,8 @@ This page provides information about the server from the perspective of PHP. It 
 After checking the relevant information about the server through this page, It’s best to remove the file created as it contains sensitive information about the PHP environment and the ubuntu server. It can always be recreated if the information is needed later.
 
 sudo rm /var/www/projectlamp/index.php
+
+
 Conclusion:
 
 The LAMP stack provides a robust and flexible platform for developing and deploying web applications. By following the guidelines outlined in this documentation, It was possible to set up, configure, and maintain a LAMP environment effectively, enabling the creation of powerful and scalable web solutions.
