@@ -38,6 +38,7 @@ sudo apt upgrade -y
 2. Run apache2 package installation
 
 sudo apt install apache2 -y
+
 ![alt text](Images/apache2_install.PNG)
 
 
@@ -46,6 +47,7 @@ sudo apt install apache2 -y
 
 sudo systemctl enable apache2
 sudo systemctl status apache2
+
 ![alt text](Images/apache2_status.PNG)
 
 
