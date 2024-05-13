@@ -8,7 +8,7 @@ The LAMP stack is a popular open-source web development platform that consists o
 Step 0: Prerequisites
 1. EC2 Instance of t2.micro type and Ubuntu 24.04 LTS (HVM) was lunched in the us-east-1 region using the AWS console.
 
-![alt text](ec2_details.PNG)
+![Images src](LAMP_STACK/Images/ec2_details.PNG)
 
 2. Created SSH key pair named lamp_ec2 to access the instance on port 22
 3. The security group was configured with the following inbound rules:
@@ -26,7 +26,7 @@ chmod 400 lamp_ec2.pem
 ssh -i "lamp_ec2.pem" ubuntu@54.227.178.19
 Where username=ubuntu and public ip address=54.227.178.19
 
-![alt text](ec2_ssh_access.PNG)
+![alt text](LAMP_STACK/Images/ec2_ssh_access.PNG)
 
 Step 1 - Install Apache and Update the Firewall
 
@@ -39,7 +39,7 @@ sudo apt upgrade -y
 
 sudo apt install apache2 -y
 
-![alt text](apache2_install.PNG)
+![alt text](LAMP_STACK/Images/apache2_install.PNG)
 
 
 3. Enable and verify that apache is running on as a service on the OS.
@@ -47,7 +47,7 @@ sudo apt install apache2 -y
 sudo systemctl enable apache2
 sudo systemctl status apache2
 
- ![alt text](apache2_status.PNG)
+![alt text](LAMP_STACK/Images/apache2_status.PNG)
 
 4. The server is running and can be accessed locally in the ubuntu shell by running the command below:
 
@@ -59,7 +59,7 @@ curl http://127.0.0.1:80
 5. Test with the public IP address if the Apache HTTP server can respond to request from the internet using the url on a browser.
 Apache Default Page This shows that the web server is correctly installed and it is accessible through the firewall.
 
-![alt text](apache2_default_page.PNG)
+![alt text](LAMP_STACK/Images/apache2_default_page.PNG)
 
 6. Another way to retrieve the public ip address other than check the aws console
 
@@ -79,7 +79,7 @@ MySQL was installed in this project. It is a popular relational database managem
 sudo apt install mysql-server
 Install MySQL When prompted, install was confirmed by typing y and then Enter.
 
-![alt text](mysql_installed.PNG)
+![alt text](LAMP_STACK/Images/mysql_installed.PNG)
 
 
 2. Enable and verify that mysql is running with the commands below
@@ -112,7 +112,7 @@ A command prompt for password was noticed after running the command below.
 
 sudo mysql -p
 
-![alt text](mysql_profile_created_and_accessed.PNG)
+![alt text](LAMP_STACK/Images/mysql_profile_created_and_accessed.PNG)
 
 exit
 
@@ -128,11 +128,11 @@ libapache2-mod-php, to enable Apache to handle PHP files.
 sudo apt install php libapache2-mod-php php-mysql
 Install PHP
 
-![alt text](php_package_installed.PNG)
+![alt text](LAMP_STACK/Images/php_package_installed.PNG)
 
 Confirm the PHP version
 
-![alt text](php_version.PNG)
+![alt text](LAMP_STACK/Images/php_version.PNG)
 
 Step 4 - Create a virtual host for the website using Apache
 
@@ -143,7 +143,7 @@ sudo mkdir /var/www/projectlamp
 Assign the directory ownership with $USER environment variable which references the current system user.
 sudo chown -R $USER:$USER /var/www/projectlamp
 
-![alt text](projectlamp_dir_created.PNG)
+![alt text](LAMP_STACK/Images/projectlamp_dir_created.PNG)
 
 2. Create and open a new configuration file in apache’s “sites-available” directory using vim.
 
@@ -152,7 +152,7 @@ sudo vim /etc/apache2/sites-available/projectlamp.conf
 
 sudo ls /etc/apache2/sites-available
 
-![alt text](sites-available_dir_listed.PNG)
+![alt text](LAMP_STACK/Images/sites-available_dir_listed.PNG)
 
 With the VirtualHost configuration, Apache will serve projectlamp using /var/www/projectlamp as its web root directory.
 
@@ -164,19 +164,19 @@ sudo a2ensite projectlamp
 
 sudo a2dissite 000-default
 
-![alt text](Apache2_default_website_disabled.PNG)
+![alt text](LAMP_STACK/Images/Apache2_default_website_disabled.PNG)
 
 6. Ensure the configuration does not contain syntax error using the command below:
 
 sudo apache2ctl configtest
 
-![alt text](config_file_syntax_test.PNG)
+![alt text](LAMP_STACK/Images/config_file_syntax_test.PNG)
 
 7. Reload apache for changes to take effect.
 sudo systemctl reload apache2
 8. The new website is now active but the web root /var/www/projectlamp is still empty. Create an index.html file in this location so to test the virtual host work as expected.
 
-![alt text](index_html_created.PNG)
+![alt text](LAMP_STACK/Images/index_html_created.PNG)
 
 9. Open the website on a browser using the public IP address.
 10. Open the website with public dns name (port is optional)
@@ -205,13 +205,15 @@ php text
 
 4. Now refresh the page
 
+![alt text](LAMP_STACK/Images/php-page.PNG)
+
 This page provides information about the server from the perspective of PHP. It is useful for debugging and to ensure the settings are being applied correctly.
 
 After checking the relevant information about the server through this page, It’s best to remove the file created as it contains sensitive information about the PHP environment and the ubuntu server. It can always be recreated if the information is needed later.
 
 sudo rm /var/www/projectlamp/index.php
 
-c:\Users\I\Pictures\Images\creation_and_deletion_of_the_index_php_file.PNG
+![alt text](LAMP_STACK/Images/creation_and_deletion_of_the_index_php_file.PNG)
 
 
 Conclusion:
