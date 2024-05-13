@@ -198,12 +198,6 @@ sudo systemctl reload apache2
 
 A new index.php file was created inside the custom web root folder.
 
-vim /var/www/projectlamp/index.php
-Add the text below in the index.php file
-
-<?php
-phpinfo();
-php text
 
 4. Now refresh the page
 
