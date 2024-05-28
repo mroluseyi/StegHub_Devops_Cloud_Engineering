@@ -1,6 +1,6 @@
-OSI MODEL
+# OSI MODEL
 
-The OSI Model: A Foundation for Network Communication
+## The OSI Model: A Foundation for Network Communication
 
 The Open Systems Interconnection (OSI) model is a conceptual framework developed by the International Organization for Standardization (ISO) in 1984. It serves as a cornerstone for understanding and implementing network communication protocols. By dividing network functions into seven distinct layers, the OSI model promotes interoperability between diverse products and software from different vendors.
 
